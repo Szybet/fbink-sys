@@ -11,3 +11,4 @@ To use it:
 
 To keep in mind:
 - FBInk is compiled with these arguments: `make -j8 static MINIMAL=1 BITMAP=1 OPENTYPE=1 IMAGE=1 FONTS=1 CROSS_COMPILE=armv7l-linux-musleabihf-`
+- FBInk submodule links to my repo, because I want to have control over version to fix things for this repo and links in the original FBInk repo keep getting broken
