@@ -69,9 +69,17 @@ fn main() {
         exit(1);
     }
 
+    let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
+    println!("out_path: {:?}", out_path);
+
+    std::fs::copy("FBInk/Release/static/libfbink.a", out_path.join("libfbink.a")).expect("Failed to copy libfbink.a library");
+    std::fs::copy("FBInk/i2c-tools/lib/libi2c.a", out_path.join("libi2c.a")).expect("Failed to copy libi2c.a library");
+
     println!("cargo:rerun-if-changed=wrapper.h");
     println!("cargo:rerun-if-changed=build.rs");
-    println!("cargo:rustc-link-lib=FBInk/Release/static/libfbink.a");
+    println!("cargo:rustc-link-search={}", out_path.to_str().unwrap());
+    println!("cargo:rustc-link-lib=static=fbink"); // FBInk/Release/static/libfbink.a
+    println!("cargo:rustc-link-lib=static=i2c"); // FBInk/Release/static/i2c.a
 
     let bindings = bindgen::Builder::default()
         //.clang_args(vec!["--target=armv7l-linux-musleabihf"])
@@ -82,7 +90,6 @@ fn main() {
         .generate()
         .expect("Unable to generate bindings");
 
-    let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
 
     println!("out_path: {:?}", out_path);
 
