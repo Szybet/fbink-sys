@@ -40,7 +40,7 @@ fn main() {
             exit(1);
         }
 
-        // Run 'make -j8 static MINIMAL=1 BITMAP=1 OPENTYPE=1 IMAGE=1 CROSS_COMPILE=armv7l-linux-musleabihf-'
+        // Run 'make -j8 static MINIMAL=1 BITMAP=1 OPENTYPE=1 IMAGE=1 FONTS=1 CROSS_COMPILE=armv7l-linux-musleabihf-'
         let make_result = Command::new("make")
             .arg("-j8")
             .arg("static")
@@ -48,6 +48,7 @@ fn main() {
             .arg("BITMAP=1")
             .arg("OPENTYPE=1")
             .arg("IMAGE=1")
+            .arg("FONTS=1")
             .arg("CROSS_COMPILE=armv7l-linux-musleabihf-")
             .status();
 
