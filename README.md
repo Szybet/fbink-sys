@@ -8,6 +8,7 @@ This is a really bare none modular way done, someone needs to improve it in the 
 To use it:
 - As for the most important things, you need musl toolchain, the inkbox one at path: `/home/build/inkbox/kernel/toolchain/armv7l-linux-musleabihf-cross/` to automatically compile FBInk
 - Use build.sh in the `example` folder to compile
+- You need to copy config from `.cargo` to your binary project
 
 To keep in mind:
 - FBInk is compiled with these arguments: `make -j8 static MINIMAL=1 BITMAP=1 OPENTYPE=1 IMAGE=1 FONTS=1 CROSS_COMPILE=armv7l-linux-musleabihf-`
