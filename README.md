@@ -6,7 +6,7 @@ Bare access to [FBInk](https://github.com/NiLuJe/FBInk) automatically made by bi
 This is a really bare none modular way done, someone needs to improve it in the future. Reasons below.
 
 To use it:
-- As for the most important things, you need musl toolchain, the inkbox one at path: `/home/build/inkbox/kernel/toolchain/armv7l-linux-musleabihf-cross/` to automatically compile FBInk
+- As for the most important things, you need musl toolchain, the inkbox one at path: `/home/build/qos/toolchains/armv7l-linux-musleabihf-cross/bin` to automatically compile FBInk
 - Use build.sh in the `example` folder to compile
 - You need to copy config from `.cargo` to your binary project
 - For some reason compiling it dynamically produces Debug libraries for fbink and not release ones... run the command manually once, should be enough :/ or just fix this somehow <sub>help</sub>

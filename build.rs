@@ -6,7 +6,7 @@ use std::process::Command;
 fn main() {
     if env::var("DOCS_RS").unwrap_or_else(|_| "0".to_string()) == "0" {
         let toolchain_path =
-            "/home/build/inkbox/kernel/toolchain/armv7l-linux-musleabihf-cross/bin";
+            "/home/build/qos/toolchains/armv7l-linux-musleabihf-cross/bin";
 
         let mut path_var = match env::var("PATH") {
             Ok(existing_path) => existing_path,
